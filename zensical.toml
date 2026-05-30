@@ -1,0 +1,46 @@
+[project]
+site_name = "Upscalar ユーザーガイド"
+site_description = "ローカル画像アップスケーラー Upscalar の利用マニュアル"
+site_author = "Upscalar"
+docs_dir = "user_guide"
+site_dir = "docs"
+use_directory_urls = true
+dev_addr = "127.0.0.1:8080"
+nav = [
+  {"ホーム" = "index.md"},
+  {"チュートリアル" = [
+    "tutorials/getting-started.md"
+  ]},
+  {"リファレンス" = [
+    "reference/parameters.md",
+    "reference/engines.md"
+  ]},
+  {"セットアップ" = [
+    "setup/models.md"
+  ]},
+  {"トラブルシュート" = "troubleshooting.md"}
+]
+
+[project.theme]
+variant = "modern"
+language = "ja"
+features = [
+  "content.code.copy",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.sections",
+  "navigation.path",
+  "navigation.tracking",
+  "search.highlight",
+  "toc.follow"
+]
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "ダークモードに切替"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "ライトモードに切替"

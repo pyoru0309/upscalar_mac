@@ -1,0 +1,8 @@
+gradio>=4.44,<5
+huggingface-hub<1.0
+pydantic<2.11
+pillow>=10,<12
+numpy>=1.24
+# Spandrel (Apple Silicon MPS) バックエンド用。torch/torchvision は環境に合わせて別途導入:
+#   pip install torch torchvision   (Apple Silicon は MPS 対応ビルド)
+spandrel>=0.3

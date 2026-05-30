@@ -1,0 +1,1154 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ローカル画像アップスケーラー Upscalar の利用マニュアル">
+      
+      
+        <meta name="author" content="Upscalar">
+      
+      
+      
+        <link rel="prev" href="../../reference/engines/">
+      
+      
+        <link rel="next" href="../../troubleshooting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.33">
+    
+    
+      
+        <title>モデルのセットアップ - Upscalar ユーザーガイド</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.53a7feaf.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="ナビゲーション"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="Upscalar ユーザーガイド" class="md-header__button md-logo" aria-label="Upscalar ユーザーガイド" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="ナビゲーション">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Upscalar ユーザーガイド
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              モデルのセットアップ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ダークモードに切替"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切替" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ライトモードに切替"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切替" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="検索">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="検索">
+  <button type="button" class="md-search__button">
+    検索
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Upscalar ユーザーガイド" class="md-nav__button md-logo" aria-label="Upscalar ユーザーガイド" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    Upscalar ユーザーガイド
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホーム
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チュートリアル
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    チュートリアル
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リファレンス
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    リファレンス
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    パラメータ設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/engines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    バックエンド一覧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セットアップ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    セットアップ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モデルのセットアップ
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モデルのセットアップ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一括セットアップ（推奨）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンド別の詳細
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックエンド別の詳細">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spandrel-mps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spandrel (MPS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hat-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HAT / DAT を使う（手動配置）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HAT &#x2f; DAT を使う（手動配置）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        どの HAT モデルを選ぶ？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-esrgan-ncnn-vulkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-ESRGAN ncnn-vulkan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-esrgan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A-ESRGAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ライセンスについて
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    トラブルシュート
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一括セットアップ（推奨）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンド別の詳細
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックエンド別の詳細">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spandrel-mps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spandrel (MPS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hat-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HAT / DAT を使う（手動配置）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HAT &#x2f; DAT を使う（手動配置）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        どの HAT モデルを選ぶ？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-esrgan-ncnn-vulkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-ESRGAN ncnn-vulkan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-esrgan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A-ESRGAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ライセンスについて
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="ナビゲーション" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    ホーム
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    セットアップ
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="_1">モデルのセットアップ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>各バックエンドが必要とする重み・実行ファイルの入手方法です。GitHub から配布されたソースには重み本体は含まれないため、下記のセットアップスクリプトで取得してください。</p>
+<h2 id="_2">一括セットアップ（推奨）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>scripts/setup_models.py</code> から各バックエンドのアセットを取得できます。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 既定: Spandrel(MPS) 用の推奨重み(RealESRGAN_x4plus.pth)を取得</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>scripts/setup_models.py
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 個別に取得</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>python<span class="w"> </span>scripts/setup_models.py<span class="w"> </span>spandrel
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>python<span class="w"> </span>scripts/setup_models.py<span class="w"> </span>realesrgan
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>python<span class="w"> </span>scripts/setup_models.py<span class="w"> </span>aesrgan
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># すべて取得</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>python<span class="w"> </span>scripts/setup_models.py<span class="w"> </span>all
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Spandrel の重みを指定して取得</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>python<span class="w"> </span>scripts/setup_models.py<span class="w"> </span>spandrel<span class="w"> </span>--model<span class="w"> </span>realesrgan-x4plus-anime
+</span></code></pre></div>
+<ul>
+<li>ダウンロード済みのファイルがあるものはスキップします。</li>
+<li>取得した重みは <code>models/spandrel/</code> などプロジェクト配下に保存され、GUI のドロップダウンに自動で表示されます。</li>
+</ul>
+<h2 id="_3">バックエンド別の詳細<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="spandrel-mps">Spandrel (MPS)<a class="headerlink" href="#spandrel-mps" title="Permanent link">&para;</a></h3>
+<p><code>scripts/setup_models.py spandrel --model &lt;名前&gt;</code> で、<code>models/spandrel/</code> に重みをダウンロードします。spandrel が対応するアーキ（HAT / SwinIR / DAT / ESRGAN / RealESRGAN / OmniSR など40種以上）の <code>.pth</code> / <code>.safetensors</code> をそのまま読み込めます。</p>
+<table>
+<thead>
+<tr>
+<th><code>--model</code> 値</th>
+<th>ファイル</th>
+<th>アーキ</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>realesrgan-x4plus</code></td>
+<td><code>RealESRGAN_x4plus.pth</code></td>
+<td>ESRGAN</td>
+<td>写真・一般画像向け（既定・高速）</td>
+</tr>
+<tr>
+<td><code>realesrgan-x4plus-anime</code></td>
+<td><code>RealESRGAN_x4plus_anime_6B.pth</code></td>
+<td>ESRGAN</td>
+<td>アニメ・イラスト向け（高速）</td>
+</tr>
+<tr>
+<td><code>swinir-realsr-x4-large</code></td>
+<td><code>..._SwinIR-L_x4_GAN.pth</code></td>
+<td>SwinIR</td>
+<td>写真の実写超解像・最高品質（重い）</td>
+</tr>
+<tr>
+<td><code>swinir-realsr-x4</code></td>
+<td><code>..._SwinIR-M_x4_GAN.pth</code></td>
+<td>SwinIR</td>
+<td>写真の実写超解像・実用バランス</td>
+</tr>
+<tr>
+<td><code>swinir-classical-x4</code></td>
+<td><code>001_classicalSR_..._x4.pth</code></td>
+<td>SwinIR</td>
+<td>劣化の少ない素材向け</td>
+</tr>
+</tbody>
+</table>
+<p>SwinIR は HAT / DAT と同系統の Transformer 系高品質モデルで、Apple Silicon の MPS で動きます（ESRGAN より高品質だが重め）。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>scripts/setup_models.py<span class="w"> </span>spandrel<span class="w"> </span>--model<span class="w"> </span>swinir-realsr-x4
+</span></code></pre></div>
+<h3 id="hat-dat">HAT / DAT を使う（手動配置）<a class="headerlink" href="#hat-dat" title="Permanent link">&para;</a></h3>
+<p>HAT と DAT は spandrel 側では対応していますが、安定した直接ダウンロード URL が無いため自動取得には含めていません。配布元（HAT は Google Drive 等）から重みを入手し、<code>models/spandrel/</code> に置けば GUI の「Spandrel model」ドロップダウンに表示されます。</p>
+<ul>
+<li>HAT: <a href="https://github.com/XPixelGroup/HAT">https://github.com/XPixelGroup/HAT</a></li>
+<li>DAT: <a href="https://github.com/zhengchen1999/DAT">https://github.com/zhengchen1999/DAT</a></li>
+</ul>
+<h4 id="hat">どの HAT モデルを選ぶ？<a class="headerlink" href="#hat" title="Permanent link">&para;</a></h4>
+<p>HAT は種類が多いですが、<strong>入力画像の劣化の種類</strong>で選びます。</p>
+<table>
+<thead>
+<tr>
+<th>入力画像</th>
+<th>おすすめ</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>実写・写真・Web 画像・圧縮/ノイズあり</td>
+<td><strong><code>Real_HAT_GAN_SRx4.pth</code></strong></td>
+<td>迷ったらこれ。実世界劣化で学習。Real-ESRGAN x4plus の上位互換的</td>
+</tr>
+<tr>
+<td>よりシャープにしたい</td>
+<td><code>Real_HAT_GAN_SRx4_sharper.pth</code></td>
+<td>上のシャープ版</td>
+</tr>
+<tr>
+<td>クリーンな素材・忠実度最優先</td>
+<td><code>HAT-L_SRx4.pth</code></td>
+<td>最高品質だが重い</td>
+</tr>
+<tr>
+<td>標準的な忠実度重視</td>
+<td><code>HAT_SRx4.pth</code> / <code>HAT_SRx4_ImageNet-pretrain.pth</code></td>
+<td>標準サイズ</td>
+</tr>
+<tr>
+<td>軽さ優先</td>
+<td><code>HAT-S_SRx4.pth</code></td>
+<td>小型版</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">classical SR と real-world GAN の違い</p>
+<p><code>HAT_SRx4</code> / <code>HAT-L_SRx4</code> / <code>HAT-S</code> や DAT などの <strong>classical SR 系</strong>は、bicubic で縮小したクリーンな画像で学習しています。クリーン素材には最高ですが、<strong>圧縮ノイズ等が乗った実写に使うとノイズごと鮮明化して逆に荒く見える</strong>ことがあります。実写・実用には複雑な劣化で学習した <strong><code>Real_HAT_GAN_SRx4</code></strong> が向いています（モデルの「格」より、入力の劣化に合った学習かどうかが効きます）。</p>
+</div>
+<p>置いた後は、プリセット「高品質・Apple Silicon — Spandrel(HAT等)」を選ぶと、SwinIR / HAT / DAT の重みがあれば自動で選択されます。<code>HAT-L</code> など重いモデルで大きい画像を扱う場合は Tile を指定してください。探索先は <code>UPSCALAR_SPANDREL_MODEL_DIR</code> で変更できます。</p>
+<h3 id="real-esrgan-ncnn-vulkan">Real-ESRGAN ncnn-vulkan<a class="headerlink" href="#real-esrgan-ncnn-vulkan" title="Permanent link">&para;</a></h3>
+<p><code>scripts/setup_models.py realesrgan</code>（内部で <code>scripts/setup_realesrgan_ncnn.py</code> を実行）で、OS に合った配布アーカイブを GitHub Releases から取得し、<code>external/realesrgan-ncnn-vulkan/</code> に展開します。</p>
+<p>別の場所に実行ファイルがある場合は <code>UPSCALAR_REALESRGAN_BIN</code> で指定してください。モデルディレクトリは <code>UPSCALAR_REALESRGAN_MODEL_DIR</code> で変更できます。</p>
+<h3 id="a-esrgan">A-ESRGAN<a class="headerlink" href="#a-esrgan" title="Permanent link">&para;</a></h3>
+<p><code>scripts/setup_models.py aesrgan</code>（内部で <code>scripts/setup_aesrgan.sh</code> を実行）で、<code>external/A-ESRGAN/</code> のクローン・<code>models/A_ESRGAN_Multi.pth</code> と <code>A_ESRGAN_Single.pth</code> の取得・現行 torchvision 向けの互換パッチ適用までを行います。</p>
+<p>追加で次の依存が必要です。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>basicsr<span class="w"> </span>facexlib<span class="w"> </span>gfpgan<span class="w"> </span>opencv-python<span class="w"> </span>tqdm
+</span></code></pre></div>
+<p>環境変数で配置を上書きできます。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UPSCALAR_AESRGAN_REPO</span><span class="o">=</span>/path/to/A-ESRGAN
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UPSCALAR_AESRGAN_MULTI_MODEL</span><span class="o">=</span>/path/to/A_ESRGAN_Multi.pth
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UPSCALAR_AESRGAN_SINGLE_MODEL</span><span class="o">=</span>/path/to/A_ESRGAN_Single.pth
+</span></code></pre></div>
+<h2 id="_4">ライセンスについて<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>各モデル・実装にはそれぞれのライセンスがあります。Upscalar は非商用利用を前提とした実験用途です。配布元のライセンス条件を確認のうえ利用してください。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="フッター" >
+        
+          
+          <a href="../../reference/engines/" class="md-footer__link md-footer__link--prev" aria-label="前: バックエンド一覧">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                前
+              </span>
+              <div class="md-ellipsis">
+                バックエンド一覧
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../troubleshooting/" class="md-footer__link md-footer__link--next" aria-label="次: トラブルシュート">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                次
+              </span>
+              <div class="md-ellipsis">
+                トラブルシュート
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.path","navigation.tracking","search.highlight","toc.follow"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"コピーしました","clipboard.copy":"クリップボードへコピー","search.result.more.one":"このページ内にもう1件見つかりました","search.result.more.other":"このページ内にあと#件見つかりました","search.result.none":"何も見つかりませんでした","search.result.one":"1件見つかりました","search.result.other":"#件見つかりました","search.result.placeholder":"検索キーワードを入力してください","search.result.term.missing":"検索に含まれない","select.version":"バージョン切り替え"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.63456bd9.min.js"></script>
+      
+    
+  </body>
+</html>
