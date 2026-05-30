@@ -353,7 +353,16 @@ def build_app():
     .table-scroll th, .table-scroll td { white-space: nowrap; padding: 6px 12px; }
     """
 
-    with gr.Blocks(title="Upscaler", css=css) as demo:
+    # ドロップゾーン外に画像を落とした際、ブラウザ/Webview が画像ファイルへ遷移して
+    # 戻れなくなるのを防ぐ。Gradio のドロップゾーンは dataTransfer 経由で処理するため影響しない。
+    head = """
+    <script>
+      window.addEventListener('dragover', function (e) { e.preventDefault(); });
+      window.addEventListener('drop', function (e) { e.preventDefault(); });
+    </script>
+    """
+
+    with gr.Blocks(title="Upscaler", css=css, head=head) as demo:
         with gr.Row():
             gr.Markdown("# Upscaler")
             help_button = gr.Button("ヘルプ / ユーザーガイド", scale=0, min_width=200)
