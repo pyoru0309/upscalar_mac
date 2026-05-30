@@ -4,6 +4,8 @@
 
 軽量な確認用として Pillow Lanczos と Real-ESRGAN を置きつつ、Apple Silicon の Metal (MPS) を活かす高品質候補として Spandrel (HAT/SwinIR/DAT/ESRGAN系) と A-ESRGAN を接続できるようにしています。MSA-ESRGAN は論文上は有望ですが、現時点でそのままGUIから呼び出せる標準的な公式推論実装や重み配布が見つけにくいため、まずは外部コマンド枠で接続できるようにしてあります。
 
+![Upscalar のメイン画面](assets/screenshot-main.png)
+
 ## 対応環境 / Platform
 
 - **対象: Apple Silicon (M1/M2/...) の macOS。** ここでのみ動作確認しています。
