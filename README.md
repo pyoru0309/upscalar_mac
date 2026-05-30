@@ -47,9 +47,13 @@ npx --yes @tauri-apps/cli@^2 build     # .app / .dmg を生成
 `npx tauri build` で配布物が生成されます。
 
 - `src-tauri/target/release/bundle/macos/Upscaler.app` … Finderからダブルクリックで起動
-- `src-tauri/target/release/bundle/dmg/Upscaler_<ver>_aarch64.dmg` … 配布用ディスクイメージ
+- `src-tauri/target/release/bundle/dmg/Upscaler_<ver>_aarch64.dmg` … ディスクイメージ
 
-ビルドした `.app` には開発時のプロジェクトの絶対パスが埋め込まれるため、**同じマシン内であれば `.app` を任意の場所（`/Applications` 等）へ移動してもプロジェクト直下の `app.py` と `.venv` を見つけて起動します**。開発環境のまま普段使いのアプリとして扱う用途に向いています。
+ビルドした `.app` には**ビルドした時点のローカルの `src-tauri` の絶対パス**がコンパイル時に埋め込まれます（`option_env!("CARGO_MANIFEST_DIR")`）。この絶対パスから `app.py` と `.venv` を見つけて起動するため、**同じマシン内であれば `.app` を任意の場所（`/Applications` 等）へ移動しても動作します**。開発環境のまま普段使いのアプリとして扱う用途に向いています。
+
+> **注意（配布について）**: この `.app`/`.dmg` は Python を同梱しない「薄いラッパー」です。埋め込まれるのは**ビルド時のローカルのフォルダ名**であり、GitHub のリポジトリ名そのものではありません（`git clone` の既定フォルダ名が `upscaler_mac` なら、そこでビルドすると `.../upscaler_mac/src-tauri` が焼き込まれます。別名のフォルダへ clone すればその名前になります）。そのため `.app`/`.dmg` を**別マシンへ配布しても基本的に動きません**（Python 環境も埋め込みパスも無いため）。配布する場合は「リポジトリを clone → `pip install -r requirements.txt` → `npx tauri build`」を案内するか、`python app.py` を使ってください。
+>
+> 補足: 上記の埋め込み絶対パスが見つからない場合のフォールバックとして、実行ファイルから上位 6 階層まで `app.py` を探索します。これは `.app` がプロジェクトツリー内（既定の `target/.../bundle/macos/` 等）にある場合のみ有効です。
 
 ### 仕組み・挙動
 
