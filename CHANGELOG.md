@@ -6,6 +6,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- デスクトップ版(Tauri)で画像のドラッグ＆ドロップが効かない問題を修正（`dragDropEnabled: false` で Tauri の OS レベルのドロップ横取りを無効化し、Gradio のドロップゾーンへ渡るようにした）。
+
 ## [0.1.0] - 2026-05-30
 
 ### Added
