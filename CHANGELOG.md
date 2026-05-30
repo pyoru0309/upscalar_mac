@@ -6,6 +6,16 @@
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-30
+
+### Changed
+
+- プロジェクト名の綴りを `upscalar` → **`upscaler`** に統一（パッケージ・import・環境変数 `UPSCALER_*`・Tauri 識別子 `dev.upscaler.app`・プロダクト名・ドキュメント）。
+
+### Added
+
+- モデルダウンローダに SwinIR（`swinir-realsr-x4` ほか）を追加。HAT / DAT は手動配置をガイド。
+
 ### Fixed
 
 - デスクトップ版(Tauri)で画像のドラッグ＆ドロップが効かない問題を修正（`dragDropEnabled: false` で Tauri の OS レベルのドロップ横取りを無効化し、Gradio のドロップゾーンへ渡るようにした）。
@@ -29,5 +39,6 @@
 - モデルダウンローダ `scripts/setup_models.py`（Real-ESRGAN / SwinIR / A-ESRGAN。HAT / DAT は手動配置を案内）。
 - 同梱ユーザーガイド（[zensical](https://pypi.org/project/zensical/) で `user_guide/` → `docs/` を生成、アプリの `/guide` で配信、ヘルプボタンから起動）。
 
-[Unreleased]: https://github.com/pyoru0309/upscaler_mac/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/pyoru0309/upscaler_mac/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/pyoru0309/upscaler_mac/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/pyoru0309/upscaler_mac/releases/tag/v0.1.0
