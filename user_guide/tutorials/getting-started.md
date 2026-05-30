@@ -1,6 +1,6 @@
 # はじめに
 
-Upscalar の導入と起動方法を説明します。
+Upscaler の導入と起動方法を説明します。
 
 ## 動作環境
 
@@ -45,8 +45,8 @@ npx --yes @tauri-apps/cli@^2 build     # .app / .dmg を生成
 
 ビルドすると `src-tauri/target/release/bundle/` に配布物が生成されます。
 
-- macOS: `bundle/macos/Upscalar.app`（Finder からダブルクリックで起動）
-- macOS: `bundle/dmg/Upscalar_<ver>_aarch64.dmg`
+- macOS: `bundle/macos/Upscaler.app`（Finder からダブルクリックで起動）
+- macOS: `bundle/dmg/Upscaler_<ver>_aarch64.dmg`
 
 ビルドした `.app` には開発時のプロジェクトの絶対パスが埋め込まれるため、同じマシン内であれば `.app` を任意の場所へ移動してもプロジェクト直下の `app.py` と `.venv` を見つけて起動します。
 

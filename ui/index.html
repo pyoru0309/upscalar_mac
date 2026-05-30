@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upscalar</title>
+    <title>Upscaler</title>
     <style>
       :root {
         color-scheme: dark;
@@ -56,11 +56,11 @@
   </head>
   <body>
     <div class="spinner" id="spinner"></div>
-    <h1>Upscalar</h1>
+    <h1>Upscaler</h1>
     <div id="status">バックエンドを起動しています…</div>
     <script>
       // Rust 側から起動失敗時に呼ばれる。
-      window.upscalarError = function (message) {
+      window.upscalerError = function (message) {
         const status = document.getElementById("status");
         const spinner = document.getElementById("spinner");
         if (spinner) spinner.style.display = "none";

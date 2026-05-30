@@ -5,8 +5,8 @@ import platform
 import shutil
 import sys
 
-from upscalar import settings
-from upscalar.registry import build_registry
+from upscaler import settings
+from upscaler.registry import build_registry
 
 
 def diagnostics_markdown() -> str:
@@ -18,9 +18,9 @@ def diagnostics_markdown() -> str:
         ("Outputs", str(settings.OUTPUTS_DIR)),
         ("Models", str(settings.MODELS_DIR)),
         ("External", str(settings.EXTERNAL_DIR)),
-        ("UPSCALAR_REALESRGAN_BIN", settings.REALESRGAN_BIN),
-        ("UPSCALAR_AESRGAN_REPO", str(settings.AESRGAN_REPO)),
-        ("UPSCALAR_SPANDREL_MODEL_DIR", str(settings.SPANDREL_MODEL_DIR)),
+        ("UPSCALER_REALESRGAN_BIN", settings.REALESRGAN_BIN),
+        ("UPSCALER_AESRGAN_REPO", str(settings.AESRGAN_REPO)),
+        ("UPSCALER_SPANDREL_MODEL_DIR", str(settings.SPANDREL_MODEL_DIR)),
         ("realesrgan-ncnn-vulkan on PATH", shutil.which(settings.REALESRGAN_BIN) or "-"),
     ]
 

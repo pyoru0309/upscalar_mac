@@ -4,9 +4,9 @@ from pathlib import Path
 
 from PIL import Image
 
-from upscalar.history import JobRecord, latest_records, records_markdown
-from upscalar.images import collect_image_paths
-from upscalar.jobs import run_recorded, successful_outputs
+from upscaler.history import JobRecord, latest_records, records_markdown
+from upscaler.images import collect_image_paths
+from upscaler.jobs import run_recorded, successful_outputs
 
 
 class JobsTest(unittest.TestCase):

@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Upscalar",
+  "productName": "Upscaler",
   "version": "0.1.0",
-  "identifier": "dev.upscalar.app",
+  "identifier": "dev.upscaler.app",
   "build": {
     "frontendDist": "../ui"
   },
@@ -10,7 +10,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Upscalar",
+        "title": "Upscaler",
         "label": "main",
         "url": "index.html",
         "width": 1280,

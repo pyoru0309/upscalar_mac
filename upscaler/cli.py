@@ -3,15 +3,15 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from upscalar.history import latest_records, records_markdown
-from upscalar.images import collect_image_paths
-from upscalar.jobs import run_many
-from upscalar.reports import write_batch_report
-from upscalar.registry import build_registry
+from upscaler.history import latest_records, records_markdown
+from upscaler.images import collect_image_paths
+from upscaler.jobs import run_many
+from upscaler.reports import write_batch_report
+from upscaler.registry import build_registry
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run an Upscalar backend without the GUI.")
+    parser = argparse.ArgumentParser(description="Run an Upscaler backend without the GUI.")
     parser.add_argument("--input", nargs="+", help="Input image file, directory, or list of paths.")
     parser.add_argument("--recursive", action="store_true", help="Search directories recursively.")
     parser.add_argument("--output-dir", default="", help="Output directory. Defaults to outputs/.")

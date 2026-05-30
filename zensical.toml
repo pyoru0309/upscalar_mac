@@ -1,7 +1,7 @@
 [project]
-site_name = "Upscalar ユーザーガイド"
-site_description = "ローカル画像アップスケーラー Upscalar の利用マニュアル"
-site_author = "Upscalar"
+site_name = "Upscaler ユーザーガイド"
+site_description = "ローカル画像アップスケーラー Upscaler の利用マニュアル"
+site_author = "Upscaler"
 docs_dir = "user_guide"
 site_dir = "docs"
 use_directory_urls = true

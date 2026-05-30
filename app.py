@@ -1,4 +1,4 @@
-from upscalar.app import main
+from upscaler.app import main
 
 
 if __name__ == "__main__":

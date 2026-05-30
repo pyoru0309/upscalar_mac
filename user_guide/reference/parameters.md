@@ -103,7 +103,7 @@ A-ESRGAN で使うモデルを選びます。基本は 4x です。
 | --- | --- |
 | `multi` | マルチスケール識別器版（`A_ESRGAN_Multi.pth`） |
 | `single` | シングル識別器版（`A_ESRGAN_Single.pth`） |
-| `custom` | 後方互換用。`UPSCALAR_AESRGAN_MODEL` で指定した重み |
+| `custom` | 後方互換用。`UPSCALER_AESRGAN_MODEL` で指定した重み |
 
 ### Spandrel model (models/spandrel)
 

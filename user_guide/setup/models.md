@@ -67,13 +67,13 @@ HAT は種類が多いですが、**入力画像の劣化の種類**で選びま
 !!! warning "classical SR と real-world GAN の違い"
     `HAT_SRx4` / `HAT-L_SRx4` / `HAT-S` や DAT などの **classical SR 系**は、bicubic で縮小したクリーンな画像で学習しています。クリーン素材には最高ですが、**圧縮ノイズ等が乗った実写に使うとノイズごと鮮明化して逆に荒く見える**ことがあります。実写・実用には複雑な劣化で学習した **`Real_HAT_GAN_SRx4`** が向いています（モデルの「格」より、入力の劣化に合った学習かどうかが効きます）。
 
-置いた後は、プリセット「高品質・Apple Silicon — Spandrel(HAT等)」を選ぶと、SwinIR / HAT / DAT の重みがあれば自動で選択されます。`HAT-L` など重いモデルで大きい画像を扱う場合は Tile を指定してください。探索先は `UPSCALAR_SPANDREL_MODEL_DIR` で変更できます。
+置いた後は、プリセット「高品質・Apple Silicon — Spandrel(HAT等)」を選ぶと、SwinIR / HAT / DAT の重みがあれば自動で選択されます。`HAT-L` など重いモデルで大きい画像を扱う場合は Tile を指定してください。探索先は `UPSCALER_SPANDREL_MODEL_DIR` で変更できます。
 
 ### Real-ESRGAN ncnn-vulkan
 
 `scripts/setup_models.py realesrgan`（内部で `scripts/setup_realesrgan_ncnn.py` を実行）で、OS に合った配布アーカイブを GitHub Releases から取得し、`external/realesrgan-ncnn-vulkan/` に展開します。
 
-別の場所に実行ファイルがある場合は `UPSCALAR_REALESRGAN_BIN` で指定してください。モデルディレクトリは `UPSCALAR_REALESRGAN_MODEL_DIR` で変更できます。
+別の場所に実行ファイルがある場合は `UPSCALER_REALESRGAN_BIN` で指定してください。モデルディレクトリは `UPSCALER_REALESRGAN_MODEL_DIR` で変更できます。
 
 ### A-ESRGAN
 
@@ -88,11 +88,11 @@ python -m pip install torch torchvision basicsr facexlib gfpgan opencv-python tq
 環境変数で配置を上書きできます。
 
 ```bash
-export UPSCALAR_AESRGAN_REPO=/path/to/A-ESRGAN
-export UPSCALAR_AESRGAN_MULTI_MODEL=/path/to/A_ESRGAN_Multi.pth
-export UPSCALAR_AESRGAN_SINGLE_MODEL=/path/to/A_ESRGAN_Single.pth
+export UPSCALER_AESRGAN_REPO=/path/to/A-ESRGAN
+export UPSCALER_AESRGAN_MULTI_MODEL=/path/to/A_ESRGAN_Multi.pth
+export UPSCALER_AESRGAN_SINGLE_MODEL=/path/to/A_ESRGAN_Single.pth
 ```
 
 ## ライセンスについて
 
-各モデル・実装にはそれぞれのライセンスがあります。Upscalar は非商用利用を前提とした実験用途です。配布元のライセンス条件を確認のうえ利用してください。
+各モデル・実装にはそれぞれのライセンスがあります。Upscaler は非商用利用を前提とした実験用途です。配布元のライセンス条件を確認のうえ利用してください。

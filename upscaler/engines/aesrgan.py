@@ -3,9 +3,9 @@ from __future__ import annotations
 import glob
 from pathlib import Path
 
-from upscalar import settings
-from upscalar.engines.base import EngineSpec, UpscaleRequest, UpscaleResult
-from upscalar.engines.utils import run_command
+from upscaler import settings
+from upscaler.engines.base import EngineSpec, UpscaleRequest, UpscaleResult
+from upscaler.engines.utils import run_command
 
 
 class AESRGANUpscaler:
@@ -13,7 +13,7 @@ class AESRGANUpscaler:
         id="aesrgan",
         name="A-ESRGAN",
         description="Attention U-Net discriminator 系の4x GANアップスケーラーです。",
-        setup_hint="UPSCALAR_AESRGAN_REPO と UPSCALAR_AESRGAN_MULTI_MODEL / UPSCALAR_AESRGAN_SINGLE_MODEL を設定してください。",
+        setup_hint="UPSCALER_AESRGAN_REPO と UPSCALER_AESRGAN_MULTI_MODEL / UPSCALER_AESRGAN_SINGLE_MODEL を設定してください。",
     )
 
     def is_available(self) -> bool:

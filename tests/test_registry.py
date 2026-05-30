@@ -1,6 +1,6 @@
 import unittest
 
-from upscalar.registry import build_registry
+from upscaler.registry import build_registry
 
 
 class RegistryTest(unittest.TestCase):

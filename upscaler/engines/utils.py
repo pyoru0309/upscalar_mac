@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Iterable, Optional, Sequence
 
 if TYPE_CHECKING:
-    from upscalar.cancellation import CancelToken
+    from upscaler.cancellation import CancelToken
 
 
 def resolve_executable(command: str) -> Optional[str]:
@@ -22,7 +22,7 @@ def run_command(
     cwd: Optional[Path] = None,
     cancel_token: Optional["CancelToken"] = None,
 ) -> str:
-    from upscalar.cancellation import UpscaleCancelled
+    from upscaler.cancellation import UpscaleCancelled
 
     printable = shlex.join([str(arg) for arg in args])
     proc = subprocess.Popen(

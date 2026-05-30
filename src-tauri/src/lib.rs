@@ -36,7 +36,7 @@ fn project_root() -> Option<PathBuf> {
 
 /// プロジェクト内の venv の Python を優先し、無ければ環境変数や PATH の python3 を使う。
 fn resolve_python(root: &Path) -> PathBuf {
-    if let Ok(custom) = std::env::var("UPSCALAR_PYTHON") {
+    if let Ok(custom) = std::env::var("UPSCALER_PYTHON") {
         if !custom.is_empty() {
             return PathBuf::from(custom);
         }
@@ -70,16 +70,16 @@ fn wait_for_server(host: &str, port: u16, timeout: Duration) -> bool {
     false
 }
 
-/// Python (Gradio) を起動し、標準出力に出る `UPSCALAR_URL=...` マーカーから URL を取得する。
+/// Python (Gradio) を起動し、標準出力に出る `UPSCALER_URL=...` マーカーから URL を取得する。
 fn spawn_server(root: &Path) -> std::io::Result<(Child, String)> {
     let python = resolve_python(root);
     let mut child = Command::new(&python)
         .arg("app.py")
         .current_dir(root)
-        .env("UPSCALAR_HOST", "127.0.0.1")
+        .env("UPSCALER_HOST", "127.0.0.1")
         .env("PYTHONUNBUFFERED", "1")
         // 親(本プロセス)が消えたら Python 側も自発終了するよう PID を渡す。
-        .env("UPSCALAR_PARENT_PID", std::process::id().to_string())
+        .env("UPSCALER_PARENT_PID", std::process::id().to_string())
         .stdout(Stdio::piped())
         .stderr(Stdio::inherit())
         .spawn()?;
@@ -94,10 +94,10 @@ fn spawn_server(root: &Path) -> std::io::Result<(Child, String)> {
     thread::spawn(move || {
         let reader = BufReader::new(stdout);
         for line in reader.lines().map_while(Result::ok) {
-            if let Some(url) = line.strip_prefix("UPSCALAR_URL=") {
+            if let Some(url) = line.strip_prefix("UPSCALER_URL=") {
                 let _ = tx.send(url.trim().to_string());
             }
-            println!("[upscalar] {line}");
+            println!("[upscaler] {line}");
         }
     });
 
@@ -106,7 +106,7 @@ fn spawn_server(root: &Path) -> std::io::Result<(Child, String)> {
         Err(_) => {
             let _ = child.kill();
             Err(std::io::Error::other(
-                "timed out waiting for UPSCALAR_URL marker from python",
+                "timed out waiting for UPSCALER_URL marker from python",
             ))
         }
     }
@@ -116,7 +116,7 @@ fn spawn_server(root: &Path) -> std::io::Result<(Child, String)> {
 fn show_error(window: &WebviewWindow, message: &str) {
     let escaped = message.replace('\\', "\\\\").replace('`', "\\`");
     let script = format!(
-        "if (window.upscalarError) {{ window.upscalarError(`{escaped}`); }} else {{ document.body.innerText = `{escaped}`; }}"
+        "if (window.upscalerError) {{ window.upscalerError(`{escaped}`); }} else {{ document.body.innerText = `{escaped}`; }}"
     );
     let _ = window.eval(&script);
 }

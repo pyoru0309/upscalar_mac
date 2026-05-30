@@ -27,7 +27,7 @@ def main() -> int:
         raise SystemExit("realesrgan-ncnn-vulkan executable was not found after extraction.")
     executable.chmod(executable.stat().st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
     print("Real-ESRGAN ncnn-vulkan is ready.")
-    print(f'export UPSCALAR_REALESRGAN_BIN="{executable}"')
+    print(f'export UPSCALER_REALESRGAN_BIN="{executable}"')
     return 0
 
 
@@ -62,7 +62,7 @@ def select_asset(assets: list[dict]) -> dict:
 
 
 def download(url: str, name: str) -> Path:
-    tmp_dir = Path(tempfile.mkdtemp(prefix="upscalar_realesrgan_"))
+    tmp_dir = Path(tempfile.mkdtemp(prefix="upscaler_realesrgan_"))
     archive_path = tmp_dir / name
     with urllib.request.urlopen(url) as response, archive_path.open("wb") as fh:
         shutil.copyfileobj(response, fh)

@@ -5,12 +5,12 @@ import traceback
 from pathlib import Path
 from typing import Dict, Iterable, Iterator, List, Sequence
 
-from upscalar import settings
-from upscalar.cancellation import CancelToken, UpscaleCancelled
-from upscalar.engines.base import UpscaleRequest, UpscaleResult
-from upscalar.history import JobRecord, append_record, new_job_id
-from upscalar.images import create_comparison_image, image_dimensions, write_manifest
-from upscalar.registry import build_registry
+from upscaler import settings
+from upscaler.cancellation import CancelToken, UpscaleCancelled
+from upscaler.engines.base import UpscaleRequest, UpscaleResult
+from upscaler.history import JobRecord, append_record, new_job_id
+from upscaler.images import create_comparison_image, image_dimensions, write_manifest
+from upscaler.registry import build_registry
 
 
 def build_request(

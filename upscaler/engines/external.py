@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import shlex
 
-from upscalar.engines.base import EngineSpec, UpscaleRequest, UpscaleResult, output_path_for
-from upscalar.engines.utils import run_command
+from upscaler.engines.base import EngineSpec, UpscaleRequest, UpscaleResult, output_path_for
+from upscaler.engines.utils import run_command
 
 
 class ExternalCommandUpscaler:

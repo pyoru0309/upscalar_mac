@@ -5,9 +5,9 @@ from pathlib import Path
 
 from PIL import Image
 
-from upscalar.cancellation import CancelToken, UpscaleCancelled
-from upscalar.engines.utils import run_command
-from upscalar.jobs import run_recorded
+from upscaler.cancellation import CancelToken, UpscaleCancelled
+from upscaler.engines.utils import run_command
+from upscaler.jobs import run_recorded
 
 
 class CancellationTest(unittest.TestCase):

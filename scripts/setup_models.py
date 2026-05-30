@@ -50,7 +50,7 @@ def _download(url: str, dest: Path) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     print(f"downloading: {url}")
     tmp = dest.with_name(dest.name + ".part")
-    request = urllib.request.Request(url, headers={"User-Agent": "upscalar-setup"})
+    request = urllib.request.Request(url, headers={"User-Agent": "upscaler-setup"})
     with urllib.request.urlopen(request) as response, tmp.open("wb") as fh:
         total = int(response.headers.get("Content-Length") or 0)
         done = 0

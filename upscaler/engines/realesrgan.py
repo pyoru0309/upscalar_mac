@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from upscalar import settings
-from upscalar.engines.base import EngineSpec, UpscaleRequest, UpscaleResult, output_path_for
-from upscalar.engines.utils import resolve_executable, run_command
+from upscaler import settings
+from upscaler.engines.base import EngineSpec, UpscaleRequest, UpscaleResult, output_path_for
+from upscaler.engines.utils import resolve_executable, run_command
 
 
 class RealESRGANNcnnUpscaler:
@@ -10,7 +10,7 @@ class RealESRGANNcnnUpscaler:
         id="realesrgan_ncnn",
         name="Real-ESRGAN ncnn-vulkan",
         description="導入しやすい標準バックエンドです。写真・アニメ系のモデルを選べます。",
-        setup_hint="UPSCALAR_REALESRGAN_BIN で realesrgan-ncnn-vulkan の実行ファイルを指定してください。",
+        setup_hint="UPSCALER_REALESRGAN_BIN で realesrgan-ncnn-vulkan の実行ファイルを指定してください。",
     )
 
     def is_available(self) -> bool:

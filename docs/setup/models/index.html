@@ -6,10 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ローカル画像アップスケーラー Upscalar の利用マニュアル">
+        <meta name="description" content="ローカル画像アップスケーラー Upscaler の利用マニュアル">
       
       
-        <meta name="author" content="Upscalar">
+        <meta name="author" content="Upscaler">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>モデルのセットアップ - Upscalar ユーザーガイド</title>
+        <title>モデルのセットアップ - Upscaler ユーザーガイド</title>
       
     
     
@@ -99,7 +99,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
-    <a href="../.." title="Upscalar ユーザーガイド" class="md-header__button md-logo" aria-label="Upscalar ユーザーガイド" data-md-component="logo">
+    <a href="../.." title="Upscaler ユーザーガイド" class="md-header__button md-logo" aria-label="Upscaler ユーザーガイド" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
@@ -113,7 +113,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Upscalar ユーザーガイド
+            Upscaler ユーザーガイド
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -198,13 +198,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Upscalar ユーザーガイド" class="md-nav__button md-logo" aria-label="Upscalar ユーザーガイド" data-md-component="logo">
+    <a href="../.." title="Upscaler ユーザーガイド" class="md-nav__button md-logo" aria-label="Upscaler ユーザーガイド" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Upscalar ユーザーガイド
+    Upscaler ユーザーガイド
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1037,22 +1037,22 @@
 <p class="admonition-title">classical SR と real-world GAN の違い</p>
 <p><code>HAT_SRx4</code> / <code>HAT-L_SRx4</code> / <code>HAT-S</code> や DAT などの <strong>classical SR 系</strong>は、bicubic で縮小したクリーンな画像で学習しています。クリーン素材には最高ですが、<strong>圧縮ノイズ等が乗った実写に使うとノイズごと鮮明化して逆に荒く見える</strong>ことがあります。実写・実用には複雑な劣化で学習した <strong><code>Real_HAT_GAN_SRx4</code></strong> が向いています（モデルの「格」より、入力の劣化に合った学習かどうかが効きます）。</p>
 </div>
-<p>置いた後は、プリセット「高品質・Apple Silicon — Spandrel(HAT等)」を選ぶと、SwinIR / HAT / DAT の重みがあれば自動で選択されます。<code>HAT-L</code> など重いモデルで大きい画像を扱う場合は Tile を指定してください。探索先は <code>UPSCALAR_SPANDREL_MODEL_DIR</code> で変更できます。</p>
+<p>置いた後は、プリセット「高品質・Apple Silicon — Spandrel(HAT等)」を選ぶと、SwinIR / HAT / DAT の重みがあれば自動で選択されます。<code>HAT-L</code> など重いモデルで大きい画像を扱う場合は Tile を指定してください。探索先は <code>UPSCALER_SPANDREL_MODEL_DIR</code> で変更できます。</p>
 <h3 id="real-esrgan-ncnn-vulkan">Real-ESRGAN ncnn-vulkan<a class="headerlink" href="#real-esrgan-ncnn-vulkan" title="Permanent link">&para;</a></h3>
 <p><code>scripts/setup_models.py realesrgan</code>（内部で <code>scripts/setup_realesrgan_ncnn.py</code> を実行）で、OS に合った配布アーカイブを GitHub Releases から取得し、<code>external/realesrgan-ncnn-vulkan/</code> に展開します。</p>
-<p>別の場所に実行ファイルがある場合は <code>UPSCALAR_REALESRGAN_BIN</code> で指定してください。モデルディレクトリは <code>UPSCALAR_REALESRGAN_MODEL_DIR</code> で変更できます。</p>
+<p>別の場所に実行ファイルがある場合は <code>UPSCALER_REALESRGAN_BIN</code> で指定してください。モデルディレクトリは <code>UPSCALER_REALESRGAN_MODEL_DIR</code> で変更できます。</p>
 <h3 id="a-esrgan">A-ESRGAN<a class="headerlink" href="#a-esrgan" title="Permanent link">&para;</a></h3>
 <p><code>scripts/setup_models.py aesrgan</code>（内部で <code>scripts/setup_aesrgan.sh</code> を実行）で、<code>external/A-ESRGAN/</code> のクローン・<code>models/A_ESRGAN_Multi.pth</code> と <code>A_ESRGAN_Single.pth</code> の取得・現行 torchvision 向けの互換パッチ適用までを行います。</p>
 <p>追加で次の依存が必要です。</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>basicsr<span class="w"> </span>facexlib<span class="w"> </span>gfpgan<span class="w"> </span>opencv-python<span class="w"> </span>tqdm
 </span></code></pre></div>
 <p>環境変数で配置を上書きできます。</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UPSCALAR_AESRGAN_REPO</span><span class="o">=</span>/path/to/A-ESRGAN
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UPSCALAR_AESRGAN_MULTI_MODEL</span><span class="o">=</span>/path/to/A_ESRGAN_Multi.pth
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UPSCALAR_AESRGAN_SINGLE_MODEL</span><span class="o">=</span>/path/to/A_ESRGAN_Single.pth
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UPSCALER_AESRGAN_REPO</span><span class="o">=</span>/path/to/A-ESRGAN
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UPSCALER_AESRGAN_MULTI_MODEL</span><span class="o">=</span>/path/to/A_ESRGAN_Multi.pth
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UPSCALER_AESRGAN_SINGLE_MODEL</span><span class="o">=</span>/path/to/A_ESRGAN_Single.pth
 </span></code></pre></div>
 <h2 id="_4">ライセンスについて<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>各モデル・実装にはそれぞれのライセンスがあります。Upscalar は非商用利用を前提とした実験用途です。配布元のライセンス条件を確認のうえ利用してください。</p>
+<p>各モデル・実装にはそれぞれのライセンスがあります。Upscaler は非商用利用を前提とした実験用途です。配布元のライセンス条件を確認のうえ利用してください。</p>
 
 
 

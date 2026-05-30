@@ -7,7 +7,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-from upscalar import settings
+from upscaler import settings
 
 
 @dataclass

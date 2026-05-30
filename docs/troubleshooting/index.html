@@ -6,10 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ローカル画像アップスケーラー Upscalar の利用マニュアル">
+        <meta name="description" content="ローカル画像アップスケーラー Upscaler の利用マニュアル">
       
       
-        <meta name="author" content="Upscalar">
+        <meta name="author" content="Upscaler">
       
       
       
@@ -25,7 +25,7 @@
     
     
       
-        <title>トラブルシュート - Upscalar ユーザーガイド</title>
+        <title>トラブルシュート - Upscaler ユーザーガイド</title>
       
     
     
@@ -97,7 +97,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
-    <a href="./.." title="Upscalar ユーザーガイド" class="md-header__button md-logo" aria-label="Upscalar ユーザーガイド" data-md-component="logo">
+    <a href="./.." title="Upscaler ユーザーガイド" class="md-header__button md-logo" aria-label="Upscaler ユーザーガイド" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
@@ -111,7 +111,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Upscalar ユーザーガイド
+            Upscaler ユーザーガイド
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -196,13 +196,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="./.." title="Upscalar ユーザーガイド" class="md-nav__button md-logo" aria-label="Upscalar ユーザーガイド" data-md-component="logo">
+    <a href="./.." title="Upscaler ユーザーガイド" class="md-nav__button md-logo" aria-label="Upscaler ユーザーガイド" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
 
     </a>
-    Upscalar ユーザーガイド
+    Upscaler ユーザーガイド
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -848,7 +848,7 @@
 <h2 id="tauri">デスクトップ版（Tauri）が起動しない / 画面が出ない<a class="headerlink" href="#tauri" title="Permanent link">&para;</a></h2>
 <ul>
 <li>初回起動時は Python サーバの立ち上げに数秒かかります。</li>
-<li><code>.venv</code> が見つからない場合は、<code>UPSCALAR_PYTHON</code> 環境変数で Python 実行ファイルを明示できます。</li>
+<li><code>.venv</code> が見つからない場合は、<code>UPSCALER_PYTHON</code> 環境変数で Python 実行ファイルを明示できます。</li>
 <li>ウィンドウを閉じると Gradio サーバも停止します。アプリがクラッシュ／強制終了した場合も、Python 側が親プロセスの消滅を検知して自発終了します。</li>
 </ul>
 <h2 id="_4">ファイル/フォルダ選択ダイアログが開かない<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
@@ -857,8 +857,8 @@
 <li>デスクトップ版（Tauri）で開かない場合は、<code>src-tauri</code> を再ビルドして最新の権限設定（capabilities）が反映されているか確認してください。</li>
 </ul>
 <h2 id="_5">ポートが使われている<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p><code>7860</code> が使用中の場合は、近い空きポートで自動起動します。固定したい場合は <code>UPSCALAR_PORT</code> を指定してください。</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">UPSCALAR_PORT</span><span class="o">=</span><span class="m">7870</span><span class="w"> </span>python<span class="w"> </span>app.py
+<p><code>7860</code> が使用中の場合は、近い空きポートで自動起動します。固定したい場合は <code>UPSCALER_PORT</code> を指定してください。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">UPSCALER_PORT</span><span class="o">=</span><span class="m">7870</span><span class="w"> </span>python<span class="w"> </span>app.py
 </span></code></pre></div>
 
 

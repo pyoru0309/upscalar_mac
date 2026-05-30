@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from upscalar import settings
-from upscalar.engines.base import EngineSpec, UpscaleRequest, UpscaleResult, output_path_for
+from upscaler import settings
+from upscaler.engines.base import EngineSpec, UpscaleRequest, UpscaleResult, output_path_for
 
 
 class SpandrelMPSUpscaler:
@@ -9,7 +9,7 @@ class SpandrelMPSUpscaler:
         id="spandrel_mps",
         name="Spandrel (Apple Silicon MPS)",
         description="HAT/SwinIR/DAT/ESRGAN系の .pth/.safetensors を spandrel で読み込み、MPS で推論します。",
-        setup_hint="models/spandrel に重みを置くか UPSCALAR_SPANDREL_MODEL で指定してください。要 pip install spandrel torch torchvision。",
+        setup_hint="models/spandrel に重みを置くか UPSCALER_SPANDREL_MODEL で指定してください。要 pip install spandrel torch torchvision。",
     )
 
     def is_available(self) -> bool:

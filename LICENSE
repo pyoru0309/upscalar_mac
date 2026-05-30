@@ -22,7 +22,7 @@ SOFTWARE.
 
 ---
 
-Note: This license covers the Upscalar source code only. The model weights used
+Note: This license covers the Upscaler source code only. The model weights used
 by the various backends (e.g. Real-ESRGAN, A-ESRGAN, SwinIR, HAT) are NOT
 included in this repository and are each subject to their own licenses, some of
 which are restricted to non-commercial use. Review the license of each model

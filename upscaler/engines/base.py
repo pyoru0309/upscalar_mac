@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Dict, Optional, Protocol
 
 if TYPE_CHECKING:
-    from upscalar.cancellation import CancelToken
+    from upscaler.cancellation import CancelToken
 
 
 @dataclass(frozen=True)

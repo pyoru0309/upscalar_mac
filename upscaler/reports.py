@@ -4,8 +4,8 @@ import time
 from pathlib import Path
 from typing import Dict, Sequence
 
-from upscalar import settings
-from upscalar.history import JobRecord
+from upscaler import settings
+from upscaler.history import JobRecord
 
 
 def write_batch_report(records: Sequence[JobRecord], options: Dict[str, object]) -> Path:
@@ -17,7 +17,7 @@ def write_batch_report(records: Sequence[JobRecord], options: Dict[str, object])
     elapsed = sum(record.elapsed_seconds for record in records)
 
     lines = [
-        "# Upscalar Batch Report",
+        "# Upscaler Batch Report",
         "",
         f"- Created: {time.strftime('%Y-%m-%d %H:%M:%S')}",
         f"- Batch ID: `{batch_id}`",

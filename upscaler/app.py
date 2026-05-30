@@ -7,13 +7,13 @@ import unicodedata
 from pathlib import Path
 from typing import Dict, Iterator, List, Sequence, Tuple
 
-from upscalar import cancellation, settings
-from upscalar.diagnostics import diagnostics_markdown, release_memory
-from upscalar.history import latest_records, records_markdown
-from upscalar.images import collect_image_paths
-from upscalar.jobs import run_many_iter, run_recorded, successful_comparisons, successful_outputs
-from upscalar.reports import write_batch_report
-from upscalar.registry import build_registry
+from upscaler import cancellation, settings
+from upscaler.diagnostics import diagnostics_markdown, release_memory
+from upscaler.history import latest_records, records_markdown
+from upscaler.images import collect_image_paths
+from upscaler.jobs import run_many_iter, run_recorded, successful_comparisons, successful_outputs
+from upscaler.reports import write_batch_report
+from upscaler.registry import build_registry
 
 
 REALESRGAN_MODELS = [
@@ -345,7 +345,7 @@ def build_app():
     default_engine = next(choice for choice in choices if choice.endswith(f"({default_engine_id})"))
 
     css = """
-    .upscalar-shell { max-width: 1180px; margin: 0 auto; }
+    .upscaler-shell { max-width: 1180px; margin: 0 auto; }
     .status-box textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
     /* 横長テーブル(特にHistory)がはみ出さないよう、コンテナ内で横スクロールさせる */
     .table-scroll { overflow-x: auto; max-width: 100%; }
@@ -353,9 +353,9 @@ def build_app():
     .table-scroll th, .table-scroll td { white-space: nowrap; padding: 6px 12px; }
     """
 
-    with gr.Blocks(title="Upscalar", css=css) as demo:
+    with gr.Blocks(title="Upscaler", css=css) as demo:
         with gr.Row():
-            gr.Markdown("# Upscalar")
+            gr.Markdown("# Upscaler")
             help_button = gr.Button("ヘルプ / ユーザーガイド", scale=0, min_width=200)
 
         with gr.Row():
@@ -660,21 +660,21 @@ def _watch_parent(parent_pid: int) -> None:
                 os._exit(0)
             time.sleep(1.0)
 
-    thread = threading.Thread(target=_poll, name="upscalar-parent-watch", daemon=True)
+    thread = threading.Thread(target=_poll, name="upscaler-parent-watch", daemon=True)
     thread.start()
 
 
 def main() -> None:
-    parent_pid = os.getenv("UPSCALAR_PARENT_PID")
+    parent_pid = os.getenv("UPSCALER_PARENT_PID")
     if parent_pid and parent_pid.isdigit():
         _watch_parent(int(parent_pid))
     demo = build_app()
     demo.queue()
-    host = os.getenv("UPSCALAR_HOST", "127.0.0.1")
-    start_port = int(os.getenv("UPSCALAR_PORT", "7860"))
+    host = os.getenv("UPSCALER_HOST", "127.0.0.1")
+    start_port = int(os.getenv("UPSCALER_PORT", "7860"))
     port = _find_free_port(host, start_port)
     # Tauri など外部ラッパーが起動URLを確実に取得できるよう、安定したマーカーを出力する。
-    print(f"UPSCALAR_URL=http://{host}:{port}", flush=True)
+    print(f"UPSCALER_URL=http://{host}:{port}", flush=True)
     _serve(demo, host, port)
 
 

@@ -2,14 +2,14 @@ from __future__ import annotations
 
 from typing import Dict, List
 
-from upscalar.engines import (
+from upscaler.engines import (
     AESRGANUpscaler,
     ExternalCommandUpscaler,
     PillowLanczosUpscaler,
     RealESRGANNcnnUpscaler,
     SpandrelMPSUpscaler,
 )
-from upscalar.engines.base import Upscaler
+from upscaler.engines.base import Upscaler
 
 
 def build_registry() -> Dict[str, Upscaler]:

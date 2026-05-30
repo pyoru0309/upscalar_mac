@@ -24,17 +24,17 @@ def _default_realesrgan_bin() -> str:
     return "realesrgan-ncnn-vulkan"
 
 
-REALESRGAN_BIN = os.getenv("UPSCALAR_REALESRGAN_BIN", _default_realesrgan_bin())
+REALESRGAN_BIN = os.getenv("UPSCALER_REALESRGAN_BIN", _default_realesrgan_bin())
 REALESRGAN_MODEL_DIR = Path(
-    os.getenv("UPSCALAR_REALESRGAN_MODEL_DIR", EXTERNAL_DIR / "realesrgan-ncnn-vulkan" / "models")
+    os.getenv("UPSCALER_REALESRGAN_MODEL_DIR", EXTERNAL_DIR / "realesrgan-ncnn-vulkan" / "models")
 )
-AESRGAN_REPO = Path(os.getenv("UPSCALAR_AESRGAN_REPO", EXTERNAL_DIR / "A-ESRGAN"))
-AESRGAN_MODEL = Path(os.getenv("UPSCALAR_AESRGAN_MODEL", MODELS_DIR / "A_ESRGAN_Multi.pth"))
-AESRGAN_MULTI_MODEL = Path(os.getenv("UPSCALAR_AESRGAN_MULTI_MODEL", MODELS_DIR / "A_ESRGAN_Multi.pth"))
-AESRGAN_SINGLE_MODEL = Path(os.getenv("UPSCALAR_AESRGAN_SINGLE_MODEL", MODELS_DIR / "A_ESRGAN_Single.pth"))
-AESRGAN_PYTHON = os.getenv("UPSCALAR_AESRGAN_PYTHON", sys.executable)
-SPANDREL_MODEL_DIR = Path(os.getenv("UPSCALAR_SPANDREL_MODEL_DIR", MODELS_DIR / "spandrel"))
-SPANDREL_MODEL = Path(os.getenv("UPSCALAR_SPANDREL_MODEL", "")) if os.getenv("UPSCALAR_SPANDREL_MODEL") else None
+AESRGAN_REPO = Path(os.getenv("UPSCALER_AESRGAN_REPO", EXTERNAL_DIR / "A-ESRGAN"))
+AESRGAN_MODEL = Path(os.getenv("UPSCALER_AESRGAN_MODEL", MODELS_DIR / "A_ESRGAN_Multi.pth"))
+AESRGAN_MULTI_MODEL = Path(os.getenv("UPSCALER_AESRGAN_MULTI_MODEL", MODELS_DIR / "A_ESRGAN_Multi.pth"))
+AESRGAN_SINGLE_MODEL = Path(os.getenv("UPSCALER_AESRGAN_SINGLE_MODEL", MODELS_DIR / "A_ESRGAN_Single.pth"))
+AESRGAN_PYTHON = os.getenv("UPSCALER_AESRGAN_PYTHON", sys.executable)
+SPANDREL_MODEL_DIR = Path(os.getenv("UPSCALER_SPANDREL_MODEL_DIR", MODELS_DIR / "spandrel"))
+SPANDREL_MODEL = Path(os.getenv("UPSCALER_SPANDREL_MODEL", "")) if os.getenv("UPSCALER_SPANDREL_MODEL") else None
 
 
 def load_prefs() -> Dict[str, Any]:

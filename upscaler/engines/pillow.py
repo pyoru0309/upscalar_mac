@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from upscalar.engines.base import EngineSpec, UpscaleRequest, UpscaleResult, output_path_for
+from upscaler.engines.base import EngineSpec, UpscaleRequest, UpscaleResult, output_path_for
 
 
 class PillowLanczosUpscaler:
